@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tune_app/Models/tuneModel.dart';
+import 'package:tune_app/main.dart';
 import 'package:tune_app/widgets/tuneWidget.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,6 +34,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
           backgroundColor: Colors.brown[900],
           title: const Center(
             child: Text(
@@ -44,10 +46,11 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-        body: ListView.builder(
-          itemCount: tunes.length,
-          itemBuilder: (BuildContext context, num) {
-          return Tunewidget(tune: tunes[num]);
-        }));
+        body: Column(
+          children: 
+            tunes.map((tune)=> Tunewidget(tune: tune)).toList(),
+        )
+        
+        );
   }
 }

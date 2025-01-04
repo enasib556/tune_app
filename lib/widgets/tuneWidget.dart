@@ -6,13 +6,15 @@ class Tunewidget extends StatelessWidget {
   Tunemodel tune;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: tune.playSound,
-      child: Container(
-          width: double.infinity,
-          height: 101,
-          color: tune.color,
-        ),
+    return Expanded(
+      child: GestureDetector(
+        onTap: tune.playSound,
+        child: Container(
+          
+           width: double.infinity,
+            color: tune.color,
+          ),
+      ),
     );
   }
 }
